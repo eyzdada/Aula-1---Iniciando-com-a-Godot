@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://csm3qdyn0gvjq"]
+
+[ext_resource type="Texture2D" uid="uid://d3s1iv7l0onnj" path="res://assets/kenney_platformer-art-deluxe/Base pack/Tiles/box.png" id="1_bswci"]
+[ext_resource type="PackedScene" uid="uid://766jsikflxl" path="res://scenes/player.tscn" id="2_rus8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbghi"]
+size = Vector2(323, 74)
+
+[node name="level1" type="Node2D" unique_id=1161704329]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=312479933]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1965369419]
+position = Vector2(284, 203)
+scale = Vector2(4.5142856, 1)
+texture = ExtResource("1_bswci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1750347448]
+position = Vector2(283.5, 203)
+shape = SubResource("RectangleShape2D_hbghi")
+
+[node name="Player" parent="." unique_id=1497856831 instance=ExtResource("2_rus8k")]
+position = Vector2(255, 109)
