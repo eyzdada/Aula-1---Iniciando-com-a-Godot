@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://csm3qdyn0gvjq"]
+[gd_scene format=3 uid="uid://csm3qdyn0gvjq"]
 
 [ext_resource type="Texture2D" uid="uid://ls2saa462y5w" path="res://assets/kenney_platformer-art-deluxe/Base pack/Tiles/tiles_spritesheet.png" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://766jsikflxl" path="res://scenes/player.tscn" id="2_rus8k"]
@@ -2864,6 +2864,7 @@ texture_region_size = Vector2i(70, 70)
 54:57/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5xbjy"]
+tile_size = Vector2i(70, 70)
 sources/0 = SubResource("TileSetAtlasSource_rus8k")
 
 [node name="level1" type="Node2D" unique_id=1161704329]
@@ -2871,6 +2872,14 @@ sources/0 = SubResource("TileSetAtlasSource_rus8k")
 [node name="Player" parent="." unique_id=1497856831 instance=ExtResource("2_rus8k")]
 position = Vector2(255, 109)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1370420064]
-tile_map_data = PackedByteArray("AAAOAAsAAAAIAAMAAAAKAAsAAAAIAAQAAAAGAAsAAAAIAAQAAAACABMAAAAHAAkAAAAGABMAAAAHAAgAAAAKABMAAAAHAAgAAAAOABMAAAAHAAgAAAASABMAAAAHAAgAAAAWABMAAAAHAAgAAAAaABMAAAAHAAgAAAAeABMAAAAHAAgAAAAiABMAAAAHAAgAAAAmABMAAAAHAAgAAAAqABMAAAAHAAgAAAAuABMAAAAHAAgAAAAyABMAAAAHAAcAAAAeAAcAAAAAAAIAAAAyAA8AAAAJAAYAAAAyAAsAAAAJAAUAAAA1ABMAAAAHAAcAAAAsAA8AAAAEAAUAAAA2AA8AAAABAAIAAAA=")
+[node name="Node2D" type="Node2D" parent="." unique_id=1471112231]
+
+[node name="fundo" type="TileMapLayer" parent="Node2D" unique_id=1407424356]
+tile_set = SubResource("TileSet_5xbjy")
+
+[node name="chão" type="TileMapLayer" parent="Node2D" unique_id=982941101]
+tile_map_data = PackedByteArray(0, 0, 5, 0, 2, 0, 0, 0, 8, 0, 2, 0, 0, 0)
+tile_set = SubResource("TileSet_5xbjy")
+
+[node name="detalhes" type="TileMapLayer" parent="Node2D" unique_id=1459501574]
 tile_set = SubResource("TileSet_5xbjy")
