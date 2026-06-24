@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0vleycurveaq" path="res://scenes/killzone.tscn" id="5_4nkto"]
 [ext_resource type="PackedScene" uid="uid://ccr0u1ju4ngav" path="res://scenes/hud.tscn" id="6_fcfvj"]
 [ext_resource type="Script" uid="uid://g1woaat4nalr" path="res://scenes/game_manager.gd" id="7_pa8r4"]
+[ext_resource type="PackedScene" uid="uid://816k3iymaupf" path="res://scenes/pause_menu.tscn" id="8_15mv3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("2_bswci")
@@ -3006,3 +3007,5 @@ script = ExtResource("7_pa8r4")
 
 [node name="PosicaoInicial" type="Marker2D" parent="." unique_id=1515212397]
 position = Vector2(-24, 247)
+
+[node name="PauseMenu" parent="." unique_id=772401542 instance=ExtResource("8_15mv3")]
