@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://2u46x23sv0t2"]
 
+[ext_resource type="Script" uid="uid://bwllqqcner54x" path="res://scenes/enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://drfs8ce6uwrhv" path="res://assets/kenney_platformer-art-deluxe/Base pack/Enemies/slimeWalk2.png" id="1_md0e3"]
 [ext_resource type="Texture2D" uid="uid://qsui0xeu82dc" path="res://assets/kenney_platformer-art-deluxe/Base pack/Enemies/slimeWalk1.png" id="2_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://0vleycurveaq" path="res://scenes/killzone.tscn" id="4_5uy6h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5uy6h"]
 animations = [{
@@ -20,13 +22,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_c4w8v"]
 radius = 29.274563
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
+size = Vector2(19.312637, 21.538464)
+
 [node name="enemy" type="CharacterBody2D" unique_id=1771956544]
+script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926719844]
 sprite_frames = SubResource("SpriteFrames_5uy6h")
 animation = &"walk"
 autoplay = "walk"
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1046542293]
 position = Vector2(-5, 1.9999998)
@@ -34,7 +39,14 @@ scale = Vector2(0.705, 0.335)
 shape = SubResource("CircleShape2D_c4w8v")
 
 [node name="FloorLeft" type="RayCast2D" parent="." unique_id=1135295003]
-target_position = Vector2(-26, 16)
+target_position = Vector2(-16, 18)
 
 [node name="FloorRight" type="RayCast2D" parent="." unique_id=421267918]
-target_position = Vector2(22, 16)
+target_position = Vector2(11, 19)
+
+[node name="Killzone" parent="." unique_id=1873488119 instance=ExtResource("4_5uy6h")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1988964852]
+position = Vector2(-4.2249994, 0.9999993)
+scale = Vector2(2.255, 1.3)
+shape = SubResource("RectangleShape2D_c4w8v")

@@ -6,17 +6,17 @@ const GRAVITY = 800.0
 var direction = 1
 
 # Variáveis que referenciam os nós da cena
-após o $, o nome deve ser o mesmo 
 																								# nome do nó
 @onready var floor_right: RayCast2D = $FloorRight
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var floor_left: RayCast2D = $FloorLeft
 
 
 func _physics_process(delta):
 	# Garante que a gravidade seja aplicada ao inimigo caso ele não esteja no chão
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
-
+	
 	# Inverte ao detectar borda com o método padrão do Raycast2D is_colliding()
 	if not floor_left.is_colliding():
 		direction = 1

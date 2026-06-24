@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://u4kc58ickjnv"]
+
+[ext_resource type="Script" uid="uid://iuqqwaf5u8o4" path="res://scenes/menu_inicial.gd" id="1_jhs6u"]
+[ext_resource type="Texture2D" uid="uid://d3ci2epu5qdfu" path="res://Image.png" id="1_p0uqc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0uqc"]
+bg_color = Color(0.9137255, 0.41960785, 0.59607846, 0)
+
+[node name="Control" type="Control" unique_id=961458024]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jhs6u")
+
+[node name="GameBackground" type="TextureRect" parent="." unique_id=1398934703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p0uqc")
+
+[node name="TheForgottenCastleLabel" type="Label" parent="." unique_id=1370150468]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 280.0
+offset_right = 569.0
+offset_bottom = 303.0
+
+[node name="JogarButton" type="Button" parent="." unique_id=1037263690]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 294.0
+offset_right = 629.0
+offset_bottom = 355.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/h_separation = 6
+theme_override_constants/icon_max_width = 20
+theme_override_constants/align_to_largest_stylebox = 20
+theme_override_constants/line_spacing = 20
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_p0uqc")
+text = "Jogar
+"
+
+[connection signal="pressed" from="JogarButton" to="." method="_on_jogar_button_pressed"]

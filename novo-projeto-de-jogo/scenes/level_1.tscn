@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://csm3qdyn0gvjq"]
 
+[ext_resource type="PackedScene" uid="uid://cx5631fccjpw7" path="res://scenes/pause_menu.tscn" id="1_fcfvj"]
 [ext_resource type="Texture2D" uid="uid://de127qbhj4qg7" path="res://assets/Imagem criada_ Castelo gótico em atmosfera sombria (2).png" id="2_5xbjy"]
 [ext_resource type="Texture2D" uid="uid://ls2saa462y5w" path="res://assets/kenney_platformer-art-deluxe/Base pack/Tiles/tiles_spritesheet.png" id="2_bswci"]
 [ext_resource type="PackedScene" uid="uid://766jsikflxl" path="res://scenes/player.tscn" id="2_rus8k"]
 [ext_resource type="PackedScene" uid="uid://2u46x23sv0t2" path="res://scenes/enemy.tscn" id="4_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://0vleycurveaq" path="res://scenes/killzone.tscn" id="5_4nkto"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("2_bswci")
@@ -2957,7 +2959,12 @@ sources/0 = SubResource("TileSetAtlasSource_rus8k")
 
 [sub_resource type="TileSet" id="TileSet_bswci"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fcfvj"]
+distance = -442.0
+
 [node name="level1" type="Node2D" unique_id=1161704329]
+
+[node name="PauseMenu" parent="." unique_id=813811196 instance=ExtResource("1_fcfvj")]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1471112231]
 
@@ -2986,4 +2993,9 @@ tile_set = SubResource("TileSet_bswci")
 position = Vector2(-96, 236)
 
 [node name="enemy" parent="." unique_id=1771956544 instance=ExtResource("4_5xbjy")]
-position = Vector2(1307, 109)
+position = Vector2(876, 129)
+
+[node name="killzone" parent="." unique_id=1244285580 instance=ExtResource("5_4nkto")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1256711984]
+shape = SubResource("WorldBoundaryShape2D_fcfvj")
