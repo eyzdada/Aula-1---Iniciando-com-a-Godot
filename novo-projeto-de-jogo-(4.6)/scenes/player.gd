@@ -29,28 +29,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite_2d.play("jump")
 
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	velocity.x = direction * SPEED if direction != 0 else move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
-func die() -> void:
-	tomar_dano(1)
+# =========================
+# VIDA / DANO
+# =========================
 
 func tomar_dano(dano: int) -> void:
 	GameManager.vidas -= dano
 
 	if GameManager.vidas <= 0:
-		print("Game Over")
-		GameManager.resetar_jogo() 
-		get_tree().reload_current_scene()
+		die()
 	else:
 		respawn()
 
 	if hud and hud.has_method("atualizar_vidas"):
 		hud.atualizar_vidas()
+
+func die() -> void:
+	GameManager.resetar_jogo()
+	get_tree().reload_current_scene()
 
 func respawn() -> void:
 	position = posicao_inicial.position

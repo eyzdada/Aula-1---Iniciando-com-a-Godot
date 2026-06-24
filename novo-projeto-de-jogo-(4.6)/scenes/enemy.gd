@@ -4,30 +4,42 @@ const SPEED = 80.0
 const GRAVITY = 800.0
 
 var direction = 1
+var pode_dar_dano := true
 
-# Variáveis que referenciam os nós da cena
-																								# nome do nó
 @onready var floor_right: RayCast2D = $FloorRight
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var floor_left: RayCast2D = $FloorLeft
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var killzone: Area2D = $killzone
 
+func _ready():
+	killzone.body_entered.connect(_on_killzone_body_entered)
 
 func _physics_process(delta):
-	# Garante que a gravidade seja aplicada ao inimigo caso ele não esteja no chão
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
-	
-	# Inverte ao detectar borda com o método padrão do Raycast2D is_colliding()
+
 	if not floor_left.is_colliding():
 		direction = 1
 	if not floor_right.is_colliding():
 		direction = -1
-		# Aplica velocidade no eixo x
+
 	velocity.x = direction * SPEED
-	# Vira o sprite do personagem se estiver indo para a direita
-	anim.flip_h =  direction > 0
-	# Roda a animação de caminhar
+	anim.flip_h = direction > 0
 	anim.play("walk")
-		
-		# Move o inimigo
+
 	move_and_slide()
+
+# =========================
+# DANO CONTROLADO
+# =========================
+
+func _on_killzone_body_entered(body: Node2D) -> void:
+	if not pode_dar_dano:
+		return
+
+	if body.has_method("tomar_dano"):
+		pode_dar_dano = false
+		body.tomar_dano(1)
+
+		await get_tree().create_timer(0.5).timeout
+		pode_dar_dano = true
