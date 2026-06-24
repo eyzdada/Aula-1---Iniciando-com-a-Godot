@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ccr0u1ju4ngav"]
+
+[ext_resource type="Script" uid="uid://caburkakfo3yw" path="res://scenes/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_toqtt"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=2120227656]
+script = ExtResource("1_ahhtf")
+
+[node name="Control" type="Control" parent="." unique_id=153667174]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1910426972]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=1681182826]
+layout_mode = 0
+offset_right = 258.0
+offset_bottom = 33.0
+
+[node name="HealthLabel" type="Label" parent="Control" unique_id=1998075094]
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 23.0
+text = "Vidas - "
+label_settings = SubResource("LabelSettings_toqtt")

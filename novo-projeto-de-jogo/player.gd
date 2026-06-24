@@ -39,11 +39,3 @@ func die():
 
 	get_tree().reload_current_scene()
 	
-func tomar_dano(dano:int) -> void:
-		GameManager.vidas -= dano
-	if vidas <= 0:
-
-get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-	else:
-		respawn()
-	hud.atualizar_vidas()
